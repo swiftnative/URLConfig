@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "41D79FE1-693B-4327-8DBE-4A870B011B6B",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:NativeNetwork.xcodeproj",
+        "identifier" : "4FA360802C15D89600040578",
+        "name" : "NativeNetworkTests"
+      }
+    }
+  ],
+  "version" : 1
+}

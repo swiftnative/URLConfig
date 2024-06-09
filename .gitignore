@@ -1,0 +1,10 @@
+
+.DS_Store
+
+.swiftpm/
+
+NativeNetwork.xcodeproj/project.xcworkspace/xcuserdata/
+
+NativeNetwork.xcodeproj/xcuserdata/alexeynenastev.xcuserdatad/
+
+Package.resolved
