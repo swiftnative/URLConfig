@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4F02D97D2C15E445001CBF2E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4F02D97C2C15E444001CBF2E /* PrivacyInfo.xcprivacy */; };
+		4F788DA42C1CAC3B007FEDB4 /* DataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F788DA32C1CAC3B007FEDB4 /* DataResponse.swift */; };
 		4FA360572C14BAC100040578 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA360562C14BAC100040578 /* App.swift */; };
 		4FA360592C14BAC100040578 /* Dogs+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA360582C14BAC100040578 /* Dogs+View.swift */; };
 		4FA3605B2C14BAC300040578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FA3605A2C14BAC300040578 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		4F02D97C2C15E444001CBF2E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4F02D97E2C15EE9A001CBF2E /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		4F788DA32C1CAC3B007FEDB4 /* DataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponse.swift; sourceTree = "<group>"; };
 		4FA360532C14BAC100040578 /* EmbeddedInApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmbeddedInApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA360562C14BAC100040578 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		4FA360582C14BAC100040578 /* Dogs+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dogs+View.swift"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				4FA360972C15DA4D00040578 /* URLResponse+.swift */,
 				4FA360692C14BF0F00040578 /* URLRequest+.swift */,
 				4FA360702C14C74000040578 /* URLSession+.swift */,
+				4F788DA32C1CAC3B007FEDB4 /* DataResponse.swift */,
 			);
 			path = NativeNetwork;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				4FA360712C14C74000040578 /* URLSession+.swift in Sources */,
 				4FA360652C14BBE700040578 /* Dogs+Model.swift in Sources */,
 				4FA360572C14BAC100040578 /* App.swift in Sources */,
+				4F788DA42C1CAC3B007FEDB4 /* DataResponse.swift in Sources */,
 				4FA3606A2C14BF0F00040578 /* URLRequest+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

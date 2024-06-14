@@ -22,7 +22,7 @@ final class NativeNetworkTests: XCTestCase {
       $0.path = "/api/v2/breeds"
     }
 
-    let response = try await URLSession.shared.dataResponse(for: request)
+    let response = try await URLSession.shared.response(for: request)
 
     XCTAssert(response.status == .ok)
   }
@@ -34,7 +34,7 @@ final class NativeNetworkTests: XCTestCase {
       $0.path = "/api/v2/breeds"
     }
 
-    let response = try await URLSession.shared.dataResponse(for: request)
+    let response = try await URLSession.shared.response(for: request)
 
     XCTAssert(response.status == .ok)
   }
@@ -44,14 +44,14 @@ final class NativeNetworkTests: XCTestCase {
     let request = URLRequest.with(.dogapi) {
       $0.path = "/api/v2/breeds"
     }
-    let response = try await URLSession.shared.dataResponse(for: request)
+    let response = try await URLSession.shared.response(for: request)
 
     XCTAssert(response.status == .ok)
 
     let request2 = URLRequest.with(.github) {
       $0.path = "/swiftnative/UnexistedRepository"
     }
-    let response2 = try await URLSession.shared.dataResponse(for: request2)
+    let response2 = try await URLSession.shared.response(for: request2)
     XCTAssert(response2.status == .notFound)
   }
 
@@ -64,8 +64,8 @@ final class NativeNetworkTests: XCTestCase {
       $0.urlParams["query"] = "APL"
     }
 
-    let response = try await URLSession.shared.dataResponse(for: request)
-    
+    let response = try await URLSession.shared.response(for: request)
+
     XCTAssert(response.status == .unauthorized)
 
     let request2 = URLRequest.with(.finance) {
@@ -73,7 +73,7 @@ final class NativeNetworkTests: XCTestCase {
       $0.urlParams["query"] = "APL"
     }
 
-    let response2 = try await URLSession.shared.dataResponse(for: request2)
+    let response2 = try await URLSession.shared.response(for: request2)
 
     XCTAssert(response2.status == .ok)
   }
@@ -85,7 +85,7 @@ final class NativeNetworkTests: XCTestCase {
       $0.path = "api/v2/breeds"
     }
 
-    let response = try await URLSession.shared.dataResponse(for: request)
+    let response = try await URLSession.shared.response(for: request)
 
     XCTAssert(response.status == .ok)
   }

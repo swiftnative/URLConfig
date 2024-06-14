@@ -20,9 +20,9 @@ final class DogsRepository: DogsRepositoryType {
       $0.path = "/api/v2/breeds"
     }
 
-    let dataResponse = try await URLSession.shared.dataResponse(for: request)
+    let response = try await URLSession.shared.response(for: request)
 
-    return try dataResponse.decode()
+    return try response.decode()
   }
 }
 

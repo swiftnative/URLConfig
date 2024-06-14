@@ -8,80 +8,75 @@
 import Foundation
 import HTTPTypes
 import HTTPTypesFoundation
+import os
+
+public typealias HTTPField = HTTPTypes.HTTPField
 
 public extension URLSession {
 
-  struct AsyncAuthorization: Equatable {
-
-    let call: (URLRequest) async throws -> URLRequest
-    fileprivate let uid = UUID()
-
-    public static func == (lhs: URLSession.AsyncAuthorization, rhs: URLSession.AsyncAuthorization) -> Bool {
-      lhs.uid == rhs.uid
-    }
-
-    public static let no = AsyncAuthorization(call: { $0 })
-
-    public init(call: @escaping (URLRequest) async throws -> URLRequest) {
-      self.call = call
-    }
-  }
-
   /// Config to make http call
-  struct Config {
-    public typealias IsUnauthorized = (HTTPResponse) -> Bool
-    public typealias URLSessionProvider = () -> URLSession
+  public struct Config {
+    public var taskDelegate: URLSessionTaskDelegate? = defaultTaskDelegate
+    public var logger: Logger? = defaultLogger
 
-    public var authorization: AsyncAuthorization = defaultAuthorization
-    public var isUnauthorized: IsUnauthorized = defaultIsUnauthorized
-
-    public static var defaultAuthorization: AsyncAuthorization = .no
-    public static var defaultIsUnauthorized: IsUnauthorized = { $0.status == .unauthorized  }
+    public static var defaultTaskDelegate: URLSessionTaskDelegate?
+    public static var defaultLogger = Logger.networking
 
     public init() {}
   }
 
-  /// Response with data
-  struct DataResponse {
-    public let request: URLRequest
-    public let status: HTTPResponse.Status
-    public let headerFields: HTTPFields
-    public let data: Data
-  }
-
-  private enum HTTPTypeConversionError: Error {
-    case failedToConvertURLResponseToHTTPResponse
-  }
+  public typealias Configurate = (inout Config) -> Void
 
   @discardableResult
-  func dataResponse(
+  func response(
     for request: URLRequest,
     config: Config = .init(),
     file: String = #file,
     function: String = #function,
-    _ configurate: (inout Config) -> Void = { _ in }
+    _ configurate: Configurate? = nil
   ) async throws -> DataResponse {
 
     var request = request
     var config = config
-    configurate(&config)
+    configurate?(&config)
 
-    if config.authorization != .no {
-      request = try await config.authorization.call(request)
-    }
-
-    let (data, urlResponse) = try await data(for: request)
-
-    guard let response = (urlResponse as? HTTPURLResponse)?.httpResponse else {
-      // Its never should happen
-      throw HTTPTypeConversionError.failedToConvertURLResponseToHTTPResponse
-    }
+    config.logger?.debug("🛫 \(request.urlString)\n\(request.bodyString)\n📄 \(file.lastPathComponent)")
     
-    let dataResponse = DataResponse(request: request,
-                                    status: response.status,
-                                    headerFields: response.headerFields,
-                                    data: data)
+    do {
+      let (data, urlResponse) = try await data(for: request, delegate: config.taskDelegate)
 
-    return dataResponse
+      let respones = try urlResponse.httpResponse()
+
+      let dataResponse = DataResponse(request: request,
+                                      response: respones,
+                                      data: data)
+
+      config.logger?.debug("🛬 \(dataResponse.request.urlString) \(dataResponse.status)\n\(dataResponse.bodyString)\n📄 \(file.lastPathComponent)")
+
+      return dataResponse
+    } catch {
+      config.logger?.error("🛬 \(request.urlString)\n\(error)")
+      throw error
+    }
+  }
+}
+
+
+
+extension Data {
+  var json: String? {
+    guard
+      let JSONObject = try? JSONSerialization.jsonObject(with: self, options: []),
+      JSONSerialization.isValidJSONObject(self),
+      let jsonData = try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted) else {
+      return String(data: self, encoding: .utf8)
+    }
+    return String(decoding: jsonData, as: UTF8.self)
+  }
+}
+
+private extension String {
+  var lastPathComponent: String {
+    (self as NSString).lastPathComponent
   }
 }

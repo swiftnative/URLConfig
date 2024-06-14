@@ -11,23 +11,7 @@ public extension URLSession {
 
   /// Config to make http call
   struct Config {
-    var authorize: Bool = false
-
     public init() {}
-  }
-
-  /// Response with data
-  struct DataResponse {
-    let request: URLRequest
-    let response: HTTPURLResponse
-    let data: Data
-    let status: URLResponse.Status
-    let fields: [String: String]
-
-    func decode<T: Decodable>(decoder: JSONDecoder = JSONDecoder(),
-                              _ type: T.Type = T.self) throws -> T {
-      try decoder.decode(type, from: data)
-    }
   }
 
   private enum HTTPTypeConversionError: Error {
@@ -35,7 +19,7 @@ public extension URLSession {
   }
 
   @discardableResult
-  func dataResponse(
+  func response(
     for request: URLRequest,
     config: Config = .init(),
     file: String = #file,
@@ -47,10 +31,7 @@ public extension URLSession {
     var config = config
     configurate(&config)
 
-    if config.authorize {
-      request.setValue("Bearer <SOME_TOKEN>", forHTTPHeaderField: "authorization")
-    }
-
+    
     let (data, urlResponse) = try await data(for: request)
     let response = urlResponse as! HTTPURLResponse
 

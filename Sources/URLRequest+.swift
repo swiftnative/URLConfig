@@ -7,8 +7,9 @@
 
 import Foundation
 import HTTPTypes
+import os
 
-extension URLRequest {
+public extension URLRequest {
 
   struct Config {
     public var host: String = defaultHost
@@ -18,9 +19,20 @@ extension URLRequest {
     public var method: HTTPRequest.Method = .get
     public var headers = HTTPFields()
     public var timeoutInterval: TimeInterval?
+    public var encoder = JSONEncoder()
+    public var bodyModel: Encodable? {
+      didSet {
+        guard bodyModel != nil else { return }
+        headers[.contentType] = "application/json"
+      }
+    }
     public var options: JSONSerialization.WritingOptions = []
 
     public static var defaultHost: String = "https://swiftnative.com"
+    
+    public init(host: String = Config.defaultHost) {
+      self.host = host
+    }
   }
 
   static func with(
@@ -59,9 +71,22 @@ extension URLRequest {
       request.timeoutInterval = timeoutInterval
     }
 
-    if !config.bodyParams.isEmpty,
-       let jsonData = try? JSONSerialization.data(withJSONObject: config.bodyParams, options: config.options) {
-      request.httpBody = jsonData
+    if let bodyModel = config.bodyModel {
+      do {
+        let jsonData = try config.encoder.encode(bodyModel)
+        request.httpBody = jsonData
+      } catch {
+        Logger.networking.error("\(error)")
+      }
+    }
+
+    if !config.bodyParams.isEmpty, JSONSerialization.isValidJSONObject(config.bodyParams) {
+      do {
+        let jsonData = try JSONSerialization.data(withJSONObject: config.bodyParams, options: config.options)
+        request.httpBody = jsonData
+      } catch {
+        Logger.networking.error("\(error)")
+      }
     }
 
     request.allHTTPHeaderFields = config.headers.dictionary
@@ -69,10 +94,12 @@ extension URLRequest {
     return request
   }
 
-  /// Set header authorization "Bearer <token>"
-  public mutating func set(authorization token: String) {
-    setValue("Bearer \(token)", forHTTPHeaderField: HTTPField.Name.authorization.rawName)
+  public var urlString: String {
+    guard let url = url else { return "" }
+    return "\(httpMethod ?? "") \(url.absoluteString)"
   }
+
+  public var bodyString: String { httpBody?.json ?? "" }
 }
 
 
