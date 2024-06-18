@@ -18,7 +18,7 @@
                BlueprintIdentifier = "4FA360522C14BAC100040578"
                BuildableName = "EmbeddedInApp.app"
                BlueprintName = "EmbeddedInApp"
-               ReferencedContainer = "container:NativeNetwork.xcodeproj">
+               ReferencedContainer = "container:URLConfig.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "4FA360522C14BAC100040578"
             BuildableName = "EmbeddedInApp.app"
             BlueprintName = "EmbeddedInApp"
-            ReferencedContainer = "container:NativeNetwork.xcodeproj">
+            ReferencedContainer = "container:URLConfig.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "4FA360522C14BAC100040578"
             BuildableName = "EmbeddedInApp.app"
             BlueprintName = "EmbeddedInApp"
-            ReferencedContainer = "container:NativeNetwork.xcodeproj">
+            ReferencedContainer = "container:URLConfig.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

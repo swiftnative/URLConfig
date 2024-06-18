@@ -10,9 +10,13 @@ import HTTPTypes
 
 /// Response with data
 public struct DataResponse {
+  /// URLRequest
   public let request: URLRequest
+  /// HTTP Status of response
   public let status: HTTPResponse.Status
+  /// Response headers
   public let headerFields: HTTPFields
+  /// Response data
   public let data: Data
 
   public init(request: URLRequest, response: HTTPResponse, data: Data) {

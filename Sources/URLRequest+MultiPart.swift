@@ -9,7 +9,7 @@ import Foundation
 
 public extension URLRequest {
 
-  public struct File {
+  struct File {
     public var key: String
     public let name: String
     public let data: Data
@@ -23,7 +23,7 @@ public extension URLRequest {
     }
   }
 
-  public mutating func setMultipartFormData(parameters: [String: String], files: [File]) {
+  mutating func setMultipartFormData(parameters: [String: String], files: [File]) {
     let boundary = "Boundary-\(UUID().uuidString)"
     let contentType = "multipart/form-data; boundary=\(boundary)"
     self.addValue(contentType, forHTTPHeaderField: "Content-Type")

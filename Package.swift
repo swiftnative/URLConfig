@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-  name: "NativeNetwork",
+  name: "URLConfig",
   platforms: [
     .iOS(.v15),
     .tvOS(.v15),
@@ -13,7 +13,7 @@ let package = Package(
   ],
 
   products: [
-    .library(name: "NativeNetwork", targets: ["NativeNetwork"])
+    .library(name: "URLConfig", targets: ["URLConfig"])
   ],
   dependencies: [
     .package(url: "https://github.com/apple/swift-http-types.git", from: "1.1.0")
@@ -22,15 +22,15 @@ let package = Package(
     // Targets are the basic building blocks of a package, defining a module or a test suite.
     // Targets can depend on other targets in this package and products from dependencies.
     .target(
-      name: "NativeNetwork",
+      name: "URLConfig",
       dependencies: [
         .product(name: "HTTPTypes", package: "swift-http-types"),
         .product(name: "HTTPTypesFoundation", package: "swift-http-types")
       ],
       path: "Sources"),
     .testTarget(
-      name: "NativeNetworkTests",
-      dependencies: ["NativeNetwork"],
+      name: "Tests",
+      dependencies: ["URLConfig"],
       path: "Tests")
   ]
 )

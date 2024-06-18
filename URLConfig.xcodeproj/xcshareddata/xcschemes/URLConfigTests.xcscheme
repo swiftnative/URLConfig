@@ -20,9 +20,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4FA360802C15D89600040578"
-               BuildableName = "NativeNetworkTests.xctest"
-               BlueprintName = "NativeNetworkTests"
-               ReferencedContainer = "container:NativeNetwork.xcodeproj">
+               BuildableName = "URLConfigTests.xctest"
+               BlueprintName = "URLConfigTests"
+               ReferencedContainer = "container:URLConfig.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

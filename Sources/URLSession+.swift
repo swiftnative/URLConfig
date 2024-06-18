@@ -15,7 +15,7 @@ public typealias HTTPField = HTTPTypes.HTTPField
 public extension URLSession {
 
   /// Config to make http call
-  public struct Config {
+  struct Config {
     public var taskDelegate: URLSessionTaskDelegate? = defaultTaskDelegate
     public var logger: Logger? = defaultLogger
 
@@ -25,7 +25,7 @@ public extension URLSession {
     public init() {}
   }
 
-  public typealias Configurate = (inout Config) -> Void
+  typealias Configurate = (inout Config) -> Void
 
   @discardableResult
   func response(
@@ -36,14 +36,16 @@ public extension URLSession {
     _ configurate: Configurate? = nil
   ) async throws -> DataResponse {
 
-    var request = request
+    let request = request
     var config = config
     configurate?(&config)
 
     config.logger?.debug("🛫 \(request.urlString)\n\(request.bodyString)\n📄 \(file.lastPathComponent)")
     
     do {
+
       let (data, urlResponse) = try await data(for: request, delegate: config.taskDelegate)
+
 
       let respones = try urlResponse.httpResponse()
 
@@ -66,7 +68,6 @@ public extension URLSession {
 extension Data {
   var json: String? {
     guard
-      let JSONObject = try? JSONSerialization.jsonObject(with: self, options: []),
       JSONSerialization.isValidJSONObject(self),
       let jsonData = try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted) else {
       return String(data: self, encoding: .utf8)

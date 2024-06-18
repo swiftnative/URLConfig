@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4F02D97D2C15E445001CBF2E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4F02D97C2C15E444001CBF2E /* PrivacyInfo.xcprivacy */; };
 		4F788DA42C1CAC3B007FEDB4 /* DataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F788DA32C1CAC3B007FEDB4 /* DataResponse.swift */; };
+		4F9F45002C2083E000A5D032 /* Logger+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9F44FD2C2083E000A5D032 /* Logger+.swift */; };
+		4F9F45012C2083E000A5D032 /* URLRequest+MultiPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9F44FE2C2083E000A5D032 /* URLRequest+MultiPart.swift */; };
+		4F9F45022C2083E000A5D032 /* DataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9F44FC2C2083E000A5D032 /* DataResponse.swift */; };
+		4F9F45032C2083E000A5D032 /* URLResponse+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9F44FF2C2083E000A5D032 /* URLResponse+.swift */; };
 		4FA360572C14BAC100040578 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA360562C14BAC100040578 /* App.swift */; };
 		4FA360592C14BAC100040578 /* Dogs+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA360582C14BAC100040578 /* Dogs+View.swift */; };
 		4FA3605B2C14BAC300040578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FA3605A2C14BAC300040578 /* Assets.xcassets */; };
@@ -16,14 +20,13 @@
 		4FA360672C14BC1B00040578 /* Dogs+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA360662C14BC1B00040578 /* Dogs+Repository.swift */; };
 		4FA3606A2C14BF0F00040578 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA360692C14BF0F00040578 /* URLRequest+.swift */; };
 		4FA360712C14C74000040578 /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA360702C14C74000040578 /* URLSession+.swift */; };
-		4FA360822C15D89600040578 /* NativeNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA3607A2C15D89500040578 /* NativeNetwork.framework */; };
+		4FA360822C15D89600040578 /* URLConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA3607A2C15D89500040578 /* URLConfig.framework */; };
 		4FA360872C15D89600040578 /* NativeNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA360862C15D89600040578 /* NativeNetworkTests.swift */; };
 		4FA360942C15D90B00040578 /* HTTPTypes in Frameworks */ = {isa = PBXBuildFile; productRef = 4FA360932C15D90B00040578 /* HTTPTypes */; };
 		4FA360962C15D90B00040578 /* HTTPTypesFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 4FA360952C15D90B00040578 /* HTTPTypesFoundation */; };
 		4FA360982C15DA4D00040578 /* URLResponse+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA360972C15DA4D00040578 /* URLResponse+.swift */; };
 		4FA3609A2C15DE3700040578 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA360902C15D8E300040578 /* URLRequest+.swift */; };
 		4FA3609B2C15DE3700040578 /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA360912C15D8E300040578 /* URLSession+.swift */; };
-		4FA3609C2C15DE3700040578 /* URLSession.DataResponse+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA3608F2C15D8E300040578 /* URLSession.DataResponse+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,10 @@
 		4F02D97C2C15E444001CBF2E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4F02D97E2C15EE9A001CBF2E /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		4F788DA32C1CAC3B007FEDB4 /* DataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponse.swift; sourceTree = "<group>"; };
+		4F9F44FC2C2083E000A5D032 /* DataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponse.swift; sourceTree = "<group>"; };
+		4F9F44FD2C2083E000A5D032 /* Logger+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+.swift"; sourceTree = "<group>"; };
+		4F9F44FE2C2083E000A5D032 /* URLRequest+MultiPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+MultiPart.swift"; sourceTree = "<group>"; };
+		4F9F44FF2C2083E000A5D032 /* URLResponse+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+.swift"; sourceTree = "<group>"; };
 		4FA360532C14BAC100040578 /* EmbeddedInApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmbeddedInApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA360562C14BAC100040578 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		4FA360582C14BAC100040578 /* Dogs+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dogs+View.swift"; sourceTree = "<group>"; };
@@ -48,10 +55,9 @@
 		4FA360662C14BC1B00040578 /* Dogs+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dogs+Repository.swift"; sourceTree = "<group>"; };
 		4FA360692C14BF0F00040578 /* URLRequest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+.swift"; sourceTree = "<group>"; };
 		4FA360702C14C74000040578 /* URLSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+.swift"; sourceTree = "<group>"; };
-		4FA3607A2C15D89500040578 /* NativeNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NativeNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FA360812C15D89600040578 /* NativeNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NativeNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FA3607A2C15D89500040578 /* URLConfig.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = URLConfig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FA360812C15D89600040578 /* URLConfigTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URLConfigTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA360862C15D89600040578 /* NativeNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeNetworkTests.swift; sourceTree = "<group>"; };
-		4FA3608F2C15D8E300040578 /* URLSession.DataResponse+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession.DataResponse+.swift"; sourceTree = "<group>"; };
 		4FA360902C15D8E300040578 /* URLRequest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+.swift"; sourceTree = "<group>"; };
 		4FA360912C15D8E300040578 /* URLSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+.swift"; sourceTree = "<group>"; };
 		4FA360972C15DA4D00040578 /* URLResponse+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+.swift"; sourceTree = "<group>"; };
@@ -79,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FA360822C15D89600040578 /* NativeNetwork.framework in Frameworks */,
+				4FA360822C15D89600040578 /* URLConfig.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,8 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				4FA360532C14BAC100040578 /* EmbeddedInApp.app */,
-				4FA3607A2C15D89500040578 /* NativeNetwork.framework */,
-				4FA360812C15D89600040578 /* NativeNetworkTests.xctest */,
+				4FA3607A2C15D89500040578 /* URLConfig.framework */,
+				4FA360812C15D89600040578 /* URLConfigTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,9 +150,12 @@
 			isa = PBXGroup;
 			children = (
 				4F02D97C2C15E444001CBF2E /* PrivacyInfo.xcprivacy */,
+				4F9F44FC2C2083E000A5D032 /* DataResponse.swift */,
+				4F9F44FD2C2083E000A5D032 /* Logger+.swift */,
+				4F9F44FE2C2083E000A5D032 /* URLRequest+MultiPart.swift */,
+				4F9F44FF2C2083E000A5D032 /* URLResponse+.swift */,
 				4FA360902C15D8E300040578 /* URLRequest+.swift */,
 				4FA360912C15D8E300040578 /* URLSession+.swift */,
-				4FA3608F2C15D8E300040578 /* URLSession.DataResponse+.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -199,9 +208,9 @@
 			productReference = 4FA360532C14BAC100040578 /* EmbeddedInApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4FA360792C15D89500040578 /* NativeNetwork */ = {
+		4FA360792C15D89500040578 /* URLConfig */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4FA360892C15D89600040578 /* Build configuration list for PBXNativeTarget "NativeNetwork" */;
+			buildConfigurationList = 4FA360892C15D89600040578 /* Build configuration list for PBXNativeTarget "URLConfig" */;
 			buildPhases = (
 				4FA360752C15D89500040578 /* Headers */,
 				4FA360762C15D89500040578 /* Sources */,
@@ -212,18 +221,18 @@
 			);
 			dependencies = (
 			);
-			name = NativeNetwork;
+			name = URLConfig;
 			packageProductDependencies = (
 				4FA360932C15D90B00040578 /* HTTPTypes */,
 				4FA360952C15D90B00040578 /* HTTPTypesFoundation */,
 			);
 			productName = NativeNetwork;
-			productReference = 4FA3607A2C15D89500040578 /* NativeNetwork.framework */;
+			productReference = 4FA3607A2C15D89500040578 /* URLConfig.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4FA360802C15D89600040578 /* NativeNetworkTests */ = {
+		4FA360802C15D89600040578 /* URLConfigTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4FA3608C2C15D89600040578 /* Build configuration list for PBXNativeTarget "NativeNetworkTests" */;
+			buildConfigurationList = 4FA3608C2C15D89600040578 /* Build configuration list for PBXNativeTarget "URLConfigTests" */;
 			buildPhases = (
 				4FA3607D2C15D89600040578 /* Sources */,
 				4FA3607E2C15D89600040578 /* Frameworks */,
@@ -234,9 +243,9 @@
 			dependencies = (
 				4FA360842C15D89600040578 /* PBXTargetDependency */,
 			);
-			name = NativeNetworkTests;
+			name = URLConfigTests;
 			productName = NativeNetworkTests;
-			productReference = 4FA360812C15D89600040578 /* NativeNetworkTests.xctest */;
+			productReference = 4FA360812C15D89600040578 /* URLConfigTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -260,7 +269,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4FA3604E2C14BAC100040578 /* Build configuration list for PBXProject "NativeNetwork" */;
+			buildConfigurationList = 4FA3604E2C14BAC100040578 /* Build configuration list for PBXProject "URLConfig" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -277,8 +286,8 @@
 			projectRoot = "";
 			targets = (
 				4FA360522C14BAC100040578 /* EmbeddedInApp */,
-				4FA360792C15D89500040578 /* NativeNetwork */,
-				4FA360802C15D89600040578 /* NativeNetworkTests */,
+				4FA360792C15D89500040578 /* URLConfig */,
+				4FA360802C15D89600040578 /* URLConfigTests */,
 			);
 		};
 /* End PBXProject section */
@@ -329,9 +338,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F9F45002C2083E000A5D032 /* Logger+.swift in Sources */,
+				4F9F45012C2083E000A5D032 /* URLRequest+MultiPart.swift in Sources */,
+				4F9F45022C2083E000A5D032 /* DataResponse.swift in Sources */,
+				4F9F45032C2083E000A5D032 /* URLResponse+.swift in Sources */,
 				4FA3609A2C15DE3700040578 /* URLRequest+.swift in Sources */,
 				4FA3609B2C15DE3700040578 /* URLSession+.swift in Sources */,
-				4FA3609C2C15DE3700040578 /* URLSession.DataResponse+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +360,7 @@
 /* Begin PBXTargetDependency section */
 		4FA360842C15D89600040578 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4FA360792C15D89500040578 /* NativeNetwork */;
+			target = 4FA360792C15D89500040578 /* URLConfig */;
 			targetProxy = 4FA360832C15D89600040578 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -544,7 +556,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -580,7 +592,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -638,7 +650,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4FA3604E2C14BAC100040578 /* Build configuration list for PBXProject "NativeNetwork" */ = {
+		4FA3604E2C14BAC100040578 /* Build configuration list for PBXProject "URLConfig" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FA3605F2C14BAC300040578 /* Debug */,
@@ -656,7 +668,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4FA360892C15D89600040578 /* Build configuration list for PBXNativeTarget "NativeNetwork" */ = {
+		4FA360892C15D89600040578 /* Build configuration list for PBXNativeTarget "URLConfig" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FA3608A2C15D89600040578 /* Debug */,
@@ -665,7 +677,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4FA3608C2C15D89600040578 /* Build configuration list for PBXNativeTarget "NativeNetworkTests" */ = {
+		4FA3608C2C15D89600040578 /* Build configuration list for PBXNativeTarget "URLConfigTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FA3608D2C15D89600040578 /* Debug */,

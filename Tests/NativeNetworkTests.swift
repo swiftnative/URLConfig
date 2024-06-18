@@ -61,7 +61,7 @@ final class NativeNetworkTests: XCTestCase {
     let request = URLRequest.with {
       $0.host = .Host.financemodelinggrep
       $0.path = "/api/v3/search-ticker"
-      $0.urlParams["query"] = "APL"
+      $0.query["query"] = "APL"
     }
 
     let response = try await URLSession.shared.response(for: request)
@@ -70,7 +70,7 @@ final class NativeNetworkTests: XCTestCase {
 
     let request2 = URLRequest.with(.finance) {
       $0.path = "/api/v3/search-ticker"
-      $0.urlParams["query"] = "APL"
+      $0.query["query"] = "APL"
     }
 
     let response2 = try await URLSession.shared.response(for: request2)
@@ -99,7 +99,7 @@ extension URLRequest.Config {
   static var finance: Self {
     var config = Self()
     config.host = .Host.financemodelinggrep
-    config.urlParams["apikey"] = "kSWTdrNFTnVkZNQL03GB73etn5xpZ8TP"
+    config.query["apikey"] = "kSWTdrNFTnVkZNQL03GB73etn5xpZ8TP"
     return config
   }
 }
