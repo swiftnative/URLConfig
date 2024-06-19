@@ -12,13 +12,7 @@
     "testTimeoutsEnabled" : true
   },
   "testTargets" : [
-    {
-      "target" : {
-        "containerPath" : "container:NativeNetwork.xcodeproj",
-        "identifier" : "4FA360802C15D89600040578",
-        "name" : "NativeNetworkTests"
-      }
-    }
+
   ],
   "version" : 1
 }

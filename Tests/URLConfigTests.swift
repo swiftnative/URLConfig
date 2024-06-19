@@ -1,14 +1,12 @@
 //
-//  NativeNetworkTests.swift
-//  NativeNetworkTests
-//
-//  Created by Alexey Nenastev on 9.6.24..
-//
+// Created by Alexey Nenastyev on 8.6.24.
+// Copyright © 2023 Alexey Nenastyev (github.com/alexejn). All Rights Reserved.
+
 
 import XCTest
-@testable import NativeNetwork
+@testable import URLConfig
 
-final class NativeNetworkTests: XCTestCase {
+final class URLConfigTests: XCTestCase {
 
   override func tearDown() {
     URLRequest.Config.defaultHost = ""

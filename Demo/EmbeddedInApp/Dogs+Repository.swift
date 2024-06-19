@@ -1,9 +1,6 @@
 //
-//  Dogs+Repository.swift
-//  NativeNetworking
-//
-//  Created by Alexey Nenastev on 8.6.24..
-//
+// Created by Alexey Nenastyev on 8.6.24.
+// Copyright © 2023 Alexey Nenastyev (github.com/alexejn). All Rights Reserved.
 
 import Foundation
 
