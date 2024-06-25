@@ -19,6 +19,7 @@ dependencies: [
 
 The library depends on Apple's [Swift HTTP Types](https://github.com/apple/swift-http-types)
 
+You can learn more about solution and motivation in [this post](https://www.swiftnative.com/how-to-be-friends-with-urlrequest/).
 
 ## Usage
 
