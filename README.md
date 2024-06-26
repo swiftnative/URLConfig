@@ -7,6 +7,9 @@ The main idea behinde to not use any wrappers and don't select in a separate lay
 Insted, use native approach with straightforward configuration. 
 What give full flexibility and increate [Locality-of-Behavior](https://htmx.org/essays/locality-of-behaviour/)
 
+
+You can learn more about solution and motivation in [this post](https://www.swiftnative.com/how-to-be-friends-with-urlrequest/).
+
 ## Getting Started
 
 Add the following dependency clause to your Package.swift:
@@ -19,7 +22,6 @@ dependencies: [
 
 The library depends on Apple's [Swift HTTP Types](https://github.com/apple/swift-http-types)
 
-You can learn more about solution and motivation in [this post](https://www.swiftnative.com/how-to-be-friends-with-urlrequest/).
 
 ## Usage
 
