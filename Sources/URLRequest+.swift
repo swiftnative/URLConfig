@@ -151,3 +151,18 @@ private extension String {
     self.utf8.allSatisfy { $0 & 0x80 == 0 }
   }
 }
+
+extension URLRequest {
+  mutating func setXWWWFormUrlencoded(_ parameters: [String: String]) {
+    let bodyString = parameters.map { "\($0.key)=\($0.value)" }
+                               .joined(separator: "&")
+
+    // Convert string to Data
+    guard let bodyData = bodyString.data(using: .utf8) else {
+        fatalError("Failed to encode body data")
+    }
+
+    self.httpBody = bodyData
+    self.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+  }
+}

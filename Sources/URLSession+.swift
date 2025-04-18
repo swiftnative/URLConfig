@@ -16,9 +16,11 @@ public extension URLSession {
   struct Config {
     public var taskDelegate: URLSessionTaskDelegate? = defaultTaskDelegate
     public var logger: Logger? = defaultLogger
+    public var logBody: Bool = logBody
 
     public static var defaultTaskDelegate: URLSessionTaskDelegate?
     public static var defaultLogger = Logger.networking
+    public static var logBody: Bool = true
 
     public init() {}
   }
@@ -38,8 +40,9 @@ public extension URLSession {
     var config = config
     configurate?(&config)
 
-    config.logger?.debug("🛫 \(request.urlString)\n\(request.bodyString)\n📄 \(file.lastPathComponent)")
-    
+    let reqBodyLog = config.logBody ? "\n\(request.bodyString)" : ""
+    config.logger?.debug("🛫 \(request.urlString)\(reqBodyLog)\n📄 \(file.lastPathComponent)")
+
     do {
 
       let (data, urlResponse) = try await data(for: request, delegate: config.taskDelegate)
@@ -51,7 +54,8 @@ public extension URLSession {
                                       response: respones,
                                       data: data)
 
-      config.logger?.debug("🛬 \(dataResponse.request.urlString) \(dataResponse.status)\n\(dataResponse.bodyString)\n📄 \(file.lastPathComponent)")
+      let respBodyLog = config.logBody ? "\n\(dataResponse.bodyString)" : ""
+      config.logger?.debug("🛬 \(dataResponse.request.urlString) \(dataResponse.status)\n\(respBodyLog)\n📄 \(file.lastPathComponent)")
 
       return dataResponse
     } catch {
