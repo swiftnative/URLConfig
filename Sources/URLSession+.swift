@@ -21,6 +21,8 @@ public extension URLSession {
     public static var defaultTaskDelegate: URLSessionTaskDelegate?
     public static var defaultLogger = Logger.networking
     public static var logBody: Bool = true
+    /// Threshold for detect if response was from cache ( sec )
+    public static var cacheDetectThreshold: TimeInterval = 0.05
 
     public init() {}
   }
@@ -45,27 +47,39 @@ public extension URLSession {
 
     do {
 
+      let hasCachedResponse = configuration.urlCache?.cachedResponse(for: request) != nil
+
+      let start = CFAbsoluteTimeGetCurrent()
       let (data, urlResponse) = try await data(for: request, delegate: config.taskDelegate)
+      let elapsed = CFAbsoluteTimeGetCurrent() - start
 
-
+      let fromCache = hasCachedResponse && elapsed < Config.cacheDetectThreshold
       let respones = try urlResponse.httpResponse()
 
       let dataResponse = DataResponse(request: request,
                                       response: respones,
-                                      data: data)
+                                      data: data,
+                                      fromCache: fromCache,
+                                      duration: elapsed)
 
       let respBodyLog = config.logBody ? "\n\(dataResponse.bodyString)" : ""
-      config.logger?.debug("🛬 \(dataResponse.request.urlString) \(dataResponse.status)\n\(respBodyLog)\n📄 \(file.lastPathComponent)")
+      config.logger?.debug("🛬\(fromCache ? " (from cache)" : "") \(dataResponse.request.urlString) \(dataResponse.status)\n\(respBodyLog)\n📄 \(file.lastPathComponent)")
 
       return dataResponse
     } catch {
+      if let urlError = error as? URLError, urlError.code == .cancelled {
+        config.logger?.debug("🛬 (canceled) \(request.urlString)")
+        throw error
+      } else if error is CancellationError {
+        config.logger?.debug("🛬 (canceled) \(request.urlString)")
+        throw error
+      }
+
       config.logger?.error("🛬 \(request.urlString)\n\(error)")
       throw error
     }
   }
 }
-
-
 
 extension Data {
   var json: String? {

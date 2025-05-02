@@ -16,12 +16,18 @@ public struct DataResponse {
   public let headerFields: HTTPFields
   /// Response data
   public let data: Data
+  /// Response was obtained from cache
+  public let fromCache: Bool
+  /// Requast - Response duration ( sec )
+  public let duration: TimeInterval
 
-  public init(request: URLRequest, response: HTTPResponse, data: Data) {
+  public init(request: URLRequest, response: HTTPResponse, data: Data, fromCache: Bool = false, duration: TimeInterval) {
     self.request = request
     self.status = response.status
     self.headerFields = response.headerFields
     self.data = data
+    self.fromCache = fromCache
+    self.duration = duration
   }
 
   public struct Config {
